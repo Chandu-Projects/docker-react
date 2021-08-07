@@ -1,5 +1,7 @@
 sudo: required
-# tell travis we need copy of docker runnin
+language: generic
+
+# tell travis we need copy of docker running
 services:
   - docker
 
@@ -9,4 +11,4 @@ before_install:
 
 # tell travis how to run our test suite
 script:
-  - docker run chandupatil98/docker-react npm run test -- --coverage
+  - docker run -e CI=true chandupatil98/docker-react npm run test -- --coverage
